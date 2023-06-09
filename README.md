@@ -10,7 +10,7 @@ Use comments to document your code.
 You can start from the documentation at https://www.nobelprize.org/about/developer-zone-2/
 
 # How to run the application
-Run App.py with python form command line,
+Run App.py with python from command line,
 input years (2000 - current year) to print the prizes
 input 'exit' to exit
 
