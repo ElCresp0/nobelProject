@@ -18,7 +18,14 @@ class App:
 
     def get_response(self, href):
         """gets a response using requests.get() and checks the status code"""
-        response = requests.get(href)
+        response = requests.Response()
+        # try-except construction in case there is no internet connection
+        try:
+            response = requests.get(href)
+        except:
+            print(PRINT_RED.format("[Error] Please, check your internet connection"))
+            return requests.Response()
+        
         status_code = response.status_code
         if status_code != STATUS_CODE_CORRECT:
             codes = {400: "BadRequest",
@@ -54,7 +61,7 @@ class App:
             # the organizations are fetched from the API for each candidate on the go
             laurate_response = self.get_response(
                 f"http://api.nobelprize.org/2.1/laureate/{id}")
-            organization = "[Could fetch organization]"
+            organization = "[Couldn't fetch organization]"
             if laurate_response.status_code == STATUS_CODE_CORRECT:
                 filtered_prize = list(filter(
                     lambda element: element["awardYear"] == year and element["category"]["en"] == CATEGORY_IN_JSON, laurate_response.json()[DATA_INDEX]["nobelPrizes"]))
