@@ -11,10 +11,19 @@ You can start from the documentation at https://www.nobelprize.org/about/develop
 
 # How to run the application
 Run App.py with python from command line,
-input years (2000 - current year) to print the prizes
-input 'exit' to exit
+
+input years (2000 - current year) to print the prizes, input 'exit' to exit
 
 # Modules used
  - datetime - to read the current year for the query
  - requests - to send GET requests to nobel API
  - re - to validate user input using regular expressions
+
+# Testing
+The testing script uses modules:
+- io and contextlib
+	- for output validation
+- unittest
+	- as the testing framework, for mocking and assertions
+
+To run the tests, run test.py with python from the command line.
